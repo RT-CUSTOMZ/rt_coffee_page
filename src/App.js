@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import base from './re-base.js'
+import Header from "./page/Header";
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            current: {},
+            logs: {},
+        };
+    }
+
+    componentDidMount() {
+        this.ref = base.syncState(`/current`,
+            {
+                context: this,
+                state: 'current' // we want to sync books but not order
+            });
+
+        this.logRef = base.syncState(`/logs`,
+            {
+                context: this,
+                state: 'logs' // we want to sync books but not order
+            });
+    }
+
+    componentWillUnmount()
+    {
+        base.removeBinding(this.ref);
+        base.removeBinding(this.logRef);
+    }
+
+    render() {
+        const {current, logs}= this.state;
+        return (
+            <div className="App">
+
+                <Switch>
+                    <Route exact path="/" render={(props) =>
+                        <React.Fragment>
+                            <Header current={current} logs={logs}/>
+                        </React.Fragment>
+                    } />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default App;
