@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import base from './re-base.js'
 import Header from "./page/Header";
+import Main from "./page/Main";
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -42,6 +43,7 @@ class App extends Component {
                     <Route exact path="/" render={(props) =>
                         <React.Fragment>
                             <Header current={current} logs={logs}/>
+                            <Main current={current} logs={logs}/>
                         </React.Fragment>
                     } />
                 </Switch>

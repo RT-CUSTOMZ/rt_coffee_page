@@ -1,20 +1,16 @@
 import React from 'react';
+import {AppBar, Toolbar, Typography} from '@material-ui/core';
 
 export default class Header extends React.Component {
     render() {
-       const {current} = this.props;
-       var ok = Object.keys(current).reduce(function (total, currentValue) {
-                const currentCoffeeState = current[currentValue].status;
-                console.log(currentCoffeeState);
-                return currentCoffeeState;
-            }
-            ,0);
-
-        return (
-            <div>
-                test <br/>
-                {ok}
-            </div>
-        );
+        return(
+            <AppBar position="static" color="default">
+                <Toolbar>
+                    <Typography variant="h6" color="inherit">
+                        Kaffee Status
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        )
     }
 }
