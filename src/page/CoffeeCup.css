@@ -1,22 +1,26 @@
 [class*='icon-']:before {
     font-size: 60pt;
 }
-.icon-coffee_cup_100:before {
-    color: green;
+.coffeeBackground_FillLevel_100 {
+    background-color: green !important;
 }
 
-.icon-coffee_cup_66:before {
-    color: yellow;
+.coffeeBackground_FillLevel_66 {
+    background-color: yellow !important;
 }
 
-.icon-coffee_cup_33:before {
-    color: orange;
+.coffeeBackground_FillLevel_33 {
+    background-color: orange !important;
 }
 
-.icon-coffee_cup_0:before {
-    color: red;
+.coffeeBackground_FillLevel_0 {
+    background-color: red !important;
 }
 
-.icon-coffee_machine:before {
-    color: black;
+.coffeeBackground_coffeeBrewing {
+    background-color: pink !important;
+}
+
+.coffeeBackground_coffeeReady{
+    background-color: teal !important;
 }

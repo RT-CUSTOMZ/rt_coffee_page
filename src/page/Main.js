@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Paper} from '@material-ui/core'
+import {Grid} from '@material-ui/core'
 import CoffeeCup from "./CoffeeCup";
 
 import Moment from 'react-moment';
@@ -23,13 +23,11 @@ export default class Main extends React.Component {
         return (
             <Grid container justify="center" spacing={16}>
                 <Grid item>
-                    <Paper>
                         <CoffeeCup current={current}/>
-                        {currentCoffee.fill_level} <br/>
-                        {currentCoffee.state} <br/>
-                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time}</Moment> <br/>
-                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time}</Moment> <br/>
-                    </Paper>
+                        F&uuml;llstand: {currentCoffee.fill_level} %<br/>
+                        Status: {currentCoffee.state} <br/>
+                        Zuletzt gekocht um: <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time}</Moment> <br/>
+                        Das war: <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time}</Moment> <br/>
                 </Grid>
             </Grid>
         );
