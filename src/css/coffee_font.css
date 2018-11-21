@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'coffee_cups';
+    src: url('./fonts/Glyphter.eot');
+    src: url('./fonts/Glyphter.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/Glyphter.woff') format('woff'),
+         url('./fonts/Glyphter.ttf') format('truetype'),
+         url('./fonts/Glyphter.svg#Glyphter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class*='icon-']:before{
+	display: inline-block;
+   font-family: 'coffee_cups';
+   font-style: normal;
+   font-weight: normal;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+.icon-coffee_cup_0:before{content:'\0041';}
+.icon-coffee_cup_33:before{content:'\0042';}
+.icon-coffee_cup_66:before{content:'\0043';}
+.icon-coffee_cup_100:before{content:'\0044';}
+.icon-coffee_machine_0:before{content:'\0045';}
+.icon-coffee_machine_100:before{content:'\0046';}

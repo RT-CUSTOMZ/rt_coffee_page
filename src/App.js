@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import base from './re-base.js'
 import Header from "./page/Header";
 import Main from "./page/Main";
+import {Grid} from '@material-ui/core'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -38,15 +39,20 @@ class App extends Component {
         const {current, logs}= this.state;
         return (
             <div className="App">
-
-                <Switch>
-                    <Route exact path="/" render={(props) =>
-                        <React.Fragment>
-                            <Header current={current} logs={logs}/>
-                            <Main current={current} logs={logs}/>
-                        </React.Fragment>
-                    } />
-                </Switch>
+                <Grid container spacing={16}>
+                    <Switch>
+                        <Route exact path="/" render={(props) =>
+                            <React.Fragment>
+                                <Grid item xs={12}>
+                                    <Header current={current} logs={logs}/>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Main current={current} logs={logs}/>
+                                </Grid>
+                            </React.Fragment>
+                        } />
+                    </Switch>
+                </Grid>
             </div>
         );
     }

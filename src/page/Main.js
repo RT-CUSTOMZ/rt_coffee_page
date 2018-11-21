@@ -1,29 +1,37 @@
 import React from 'react';
+import {Grid, Paper} from '@material-ui/core'
+import CoffeeCup from "./CoffeeCup";
+
+import Moment from 'react-moment';
+import 'moment-timezone';
+import 'moment/locale/de';
 
 export default class Main extends React.Component {
     render() {
         const {current} = this.props;
 
-        let moment = require('moment');
-        moment.locale('de');
-        let currentCoffeeState = Object.keys(current).reduce(function (total, currentValue) {
+        let currentCoffee = Object.keys(current).reduce(function (total, currentValue) {
             let entry = {
                 state : current[currentValue].state,
-                weight : current[currentValue].weight,
-                timeoriginal : current[currentValue].time,
-                date : moment(current[currentValue].time).format('LL'),
-                time : moment(current[currentValue].time).fromNow(),
+                fill_level : current[currentValue].fill_level,
+                time: current[currentValue].time,
             }
 
             return entry;
         },0);
+
         return (
-            <div>
-                {currentCoffeeState.weight} <br/>
-                {currentCoffeeState.time} <br/>
-                {currentCoffeeState.state} <br/>
-                {moment(currentCoffeeState.timeoriginal).calendar()} <br/>
-            </div>
+            <Grid container justify="center" spacing={16}>
+                <Grid item>
+                    <Paper>
+                        <CoffeeCup current={current}/>
+                        {currentCoffee.fill_level} <br/>
+                        {currentCoffee.state} <br/>
+                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time}</Moment> <br/>
+                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time}</Moment> <br/>
+                    </Paper>
+                </Grid>
+            </Grid>
         );
 
     }
