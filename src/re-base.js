@@ -1,5 +1,6 @@
 import Rebase from "re-base";
 import firebase from "firebase";
+
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyCd1JDAHdFwknXD2rKg_g4WWGCwOJDkjIk",
     authDomain: "coffee-page-moc.firebaseapp.com",

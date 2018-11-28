@@ -1,26 +1,28 @@
 [class*='icon-']:before {
     font-size: 60pt;
 }
+
+/*  https://color.adobe.com/de/create/color-wheel/?base=2&rule=Custom&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0.10579766442460276,0.9176470588235294,0.44313725490196076,0.9145364649949733,0.9450980392156862,0.22741958649183075,1,0.531382638706873,0,0.9254901960784314,0.26666666666666666,0.03529411764705882,0.1213975711575307,0.7744927799050627,0.9&swatchOrder=0,1,2,3,4  */
 .coffeeBackground_FillLevel_100 {
-    background-color: green !important;
+    background-color: rgb(27,234,113) !important;
 }
 
 .coffeeBackground_FillLevel_66 {
-    background-color: yellow !important;
+    background-color: rgb(223,241,58) !important;
 }
 
 .coffeeBackground_FillLevel_33 {
-    background-color: orange !important;
+    background-color: rgb(255,136,0) !important;
 }
 
 .coffeeBackground_FillLevel_0 {
-    background-color: red !important;
+    background-color: rgb(236,68,9) !important;
 }
 
 .coffeeBackground_coffeeBrewing {
-    background-color: pink !important;
+    background-color: rgb(31,197,229) !important;
 }
 
 .coffeeBackground_coffeeReady{
-    background-color: teal !important;
+    background-color: rgb(27,234,113) !important;
 }
