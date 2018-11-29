@@ -26,3 +26,6 @@
 .coffeeBackground_coffeeReady{
     background-color: rgb(27,234,113) !important;
 }
+[class*='coffeeBackground_']{
+    padding: 20px 20px 15px 20px;
+}
