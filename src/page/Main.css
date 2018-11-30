@@ -1,0 +1,44 @@
+.machines{
+    margin-top: 30px;
+    padding: 20px;
+    min-width:331px !important;
+}
+
+.warning{
+    color: rgb(255,0,0);
+}
+
+[class*='font_FillLevel_'] {
+    font-weight: bold;
+}
+
+.font_FillLevel_100 {
+    color: rgb(27,234,113) !important;
+}
+
+.font_FillLevel_66 {
+    color: rgb(223,241,58) !important;
+}
+
+.font_FillLevel_33 {
+    color: rgb(255,136,0) !important;
+}
+
+.font_FillLevel_0 {
+    color: rgb(236,68,9) !important;
+}
+
+.font_coffeeBrewing {
+    color: rgb(31,197,229) !important;
+    font-weight: bold;
+}
+
+.font_coffeeReady{
+    color: rgb(27,234,113) !important;
+    font-weight: bold;
+}
+
+.deactivated{
+    background-color: #EFEFEF!important;
+    color: #777!important;
+}

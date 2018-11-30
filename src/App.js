@@ -43,6 +43,14 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" render={(props) =>
                             <React.Fragment>
+                                    <Header current={current} logs={logs}/>
+                                <Grid item xs={12}>
+                                    <Main current={current} logs={logs}/>
+                                </Grid>
+                            </React.Fragment>
+                        } />
+                        <Route exact path="/log" render={(props) =>
+                            <React.Fragment>
                                 <Grid item xs={12}>
                                     <Header current={current} logs={logs}/>
                                 </Grid>

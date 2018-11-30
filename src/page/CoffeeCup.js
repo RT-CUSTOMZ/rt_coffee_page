@@ -12,7 +12,7 @@ export default class CoffeeCup extends React.Component {
         let currentCoffee = Object.keys(current).reduce(function (total, currentValue) {
             let entry = {
                 state : current[currentValue].coffee_machine.state,
-                time_state : current[currentValue].coffee_machine.time,
+                time_coffee_machine : current[currentValue].coffee_machine.time,
                 fill_level : current[currentValue].scale.fill_level,
                 time_fill_level: current[currentValue].scale.time,
             }
@@ -23,7 +23,7 @@ export default class CoffeeCup extends React.Component {
         let CoffeeColor = "no";
         let moment = require('moment');
         let timestamp_fillevel = moment(currentCoffee.time_fill_level).format("x");
-        let timestamp_coffeemachine = moment(currentCoffee.time_state).format("x");
+        let timestamp_coffeemachine = moment(currentCoffee.time_coffee_machine).format("x");
 
         if (timestamp_coffeemachine < timestamp_fillevel) {
             if(currentCoffee.fill_level >= 90){
