@@ -21,14 +21,11 @@ export default class CoffeeCup extends React.Component {
         },0);
         let Icon = "no_status";
         let CoffeeColor = "no";
-        var moment = require('moment');
+        let moment = require('moment');
         let timestamp_fillevel = moment(currentCoffee.time_fill_level).format("x");
         let timestamp_coffeemachine = moment(currentCoffee.time_state).format("x");
-        console.log(timestamp_fillevel);
-        console.log(timestamp_coffeemachine);
 
-
-        if (timestamp_coffeemachine > timestamp_fillevel) {
+        if (timestamp_coffeemachine < timestamp_fillevel) {
             if(currentCoffee.fill_level >= 90){
                 Icon = "icon-coffee_cup_100";
                 CoffeeColor = "coffeeBackground_FillLevel_100";
