@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Paper, Typography} from '@material-ui/core'
+import {Grid, Paper, Typography, TableBody, TableRow, TableCell, Table} from '@material-ui/core'
 import Moment from "react-moment";
 
 export default class StatusOfScale extends React.Component {
@@ -8,13 +8,42 @@ export default class StatusOfScale extends React.Component {
 
         return (
             <Paper className={'machines scale_paper' +((!scaleIsLatest)?' deactivated':'')  }>
-                <Grid item xl={6}>
-                    <Typography variant="h3" gutterBottom className={((!scaleIsLatest)?'deactivated':'')}>
+                <Grid item>
+                    <Typography variant="h5" gutterBottom className={((!scaleIsLatest)?'deactivated':'')}>
                         Waage
                     </Typography>
-                    Füllstand Kaffeekanne:<span className={fill_level_class}>{currentCoffee.fill_level}%</span> <br/>
-                    Zuletzt gewogen um: <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time_fill_level}</Moment> <br/>
-                    Das war: <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time_fill_level}</Moment> <br/>
+                    <Typography variant="subtitle1" gutterBottom>
+                        <Table>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell>
+                                        Letzter Füllstand Kaffeekanne
+                                    </TableCell>
+                                    <TableCell>
+                                        <span className={fill_level_class}>{currentCoffee.fill_level}%</span>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        Zuletzt gewogen
+                                    </TableCell>
+                                    <TableCell>
+                                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time_fill_level}</Moment>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        Das war
+                                    </TableCell>
+                                    <TableCell>
+                                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time_fill_level}</Moment>
+                                    </TableCell>
+                                </TableRow>
+
+
+                            </TableBody>
+                        </Table>
+                    </Typography>
                 </Grid>
             </Paper>
         );

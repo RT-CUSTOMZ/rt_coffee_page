@@ -53,7 +53,7 @@ export default class CoffeeCup extends React.Component {
         }
         return (
             <Paper className={CoffeeColor}>
-                <div className={Icon}>
+                <div className={Icon} >
 
                 </div>
             </Paper>

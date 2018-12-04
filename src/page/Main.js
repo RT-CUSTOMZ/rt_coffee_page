@@ -51,57 +51,80 @@ export default class Main extends React.Component {
             scaleIsLatest = 0;
             coffeeMachineIsLatest = 1;
         }
-        if (scaleIsLatest) {
-            if(currentCoffee.fill_level >= 90){
-                fill_level_class = "font_FillLevel_100";
-            } else if(currentCoffee.fill_level >= 55){
-                fill_level_class = "font_FillLevel_66";
-            } else if(currentCoffee.fill_level >= 20){
-                fill_level_class = "font_FillLevel_33";
-            } else if(currentCoffee.fill_level < 20){
+        let duration = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
+        if (scaleIsLatest||duration>4) {
+            if(duration>4){
                 fill_level_class = "font_FillLevel_0";
+            } else {
+                if(currentCoffee.fill_level >= 90){
+                    fill_level_class = "font_FillLevel_100";
+                } else if(currentCoffee.fill_level >= 55){
+                    fill_level_class = "font_FillLevel_66";
+                } else if(currentCoffee.fill_level >= 20){
+                    fill_level_class = "font_FillLevel_33";
+                } else if(currentCoffee.fill_level < 20){
+                    fill_level_class = "font_FillLevel_0";
+                }
             }
         } else {
             if(currentCoffee.state === "coffee_ready") {
                 state_class = 'font_coffeeReady';
-            } else
-                state_class = 'font_coffeeBrewing'
-        }
-
-        if (scaleIsLatest) {
-            last_status = "Waage";
-            if(currentCoffee.fill_level <= 20){
-                warning = "Der Kaffee ist fast leer! Bitte neuen kochen.";
             } else {
-                warning = "";
+                state_class = 'font_coffeeBrewing'
             }
-        } else {
-            last_status = "Kaffeemaschine";
-            warning = "Bitte die Kaffeekanne auf die Waage stellen.";
+
         }
-        
+        if(scaleIsLatest){
+            if (scaleIsLatest) {
+                last_status = "Waage";
+                if(currentCoffee.fill_level <= 20){
+                    warning = "Der Kaffee ist fast leer! Bitte neuen kochen.";
+                } else {
+                    warning = "";
+                }
+                if(duration>4){
+                    warning = "Der Kaffee ist alt! Bitte neuen kochen.";
+                }
+            } else {
+                last_status = "Kaffeemaschine";
+                warning = "Bitte die Kaffeekanne auf die Waage stellen.";
+                if(duration>4){
+                    warning = "Der Kaffee ist alt! Bitte neuen kochen.";
+                }
+            }
+        }
+
         return (
-            <div>
-                <Grid container justify="center" spacing={32} alignItems={'center'}>
-                    <LastEventIcon
-                        current={current}
-                        last_status={last_status}
-                        warning={warning}/>
-                </Grid>
-
-                <Grid container justify="space-around" spacing={32} alignItems="stretch">
-                    <StatusOfCoffeeMachine
-                        coffeeMachineIsLatest={coffeeMachineIsLatest}
-                        currentCoffee={currentCoffee}
-                        state_class={state_class}
-                        german_state_name={german_state_name}/>
-
-                    <StatusOfScale
-                        scaleIsLatest={scaleIsLatest}
-                        fill_level_class={fill_level_class}
-                        currentCoffee={currentCoffee}/>
-                </Grid>
-            </div>
+            <React.Fragment>
+                 <Grid container >
+                     <Grid item xs={3}>
+                     </Grid>
+                     <Grid item  xs={6} >
+                         <Grid container>
+                            <LastEventIcon
+                                current={current}
+                                last_status={last_status}
+                                warning={warning}/>
+                         </Grid>
+                     </Grid>
+                     <Grid item xs={3}>
+                     </Grid>
+                    <Grid item xs={12}>
+                        <Grid container justify={'space-around'} alignItems={'stretch'} item>
+                            <StatusOfCoffeeMachine
+                                coffeeMachineIsLatest={coffeeMachineIsLatest}
+                                currentCoffee={currentCoffee}
+                                state_class={state_class}
+                                german_state_name={german_state_name}
+                                duration={duration}/>
+                            <StatusOfScale
+                                scaleIsLatest={scaleIsLatest}
+                                fill_level_class={fill_level_class}
+                                currentCoffee={currentCoffee}/>
+                        </Grid>
+                    </Grid>
+                 </Grid>
+            </React.Fragment>
         );
 
     }

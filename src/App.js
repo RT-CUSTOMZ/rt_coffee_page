@@ -39,7 +39,7 @@ class App extends Component {
         const {current, logs}= this.state;
         return (
             <div className="App">
-                <Grid container spacing={16}>
+                <Grid container spacing={0} style={{margin: 0, width: '100%'}}>
                     <Switch>
                         <Route exact path="/" render={(props) =>
                             <React.Fragment>
