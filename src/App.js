@@ -5,6 +5,7 @@ import Main from "./page/Main";
 import {createMuiTheme, Grid, MuiThemeProvider} from '@material-ui/core'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import CompressedLayout from "./page/compressed/CompressedLayout";
 
 class App extends Component {
     constructor(props) {
@@ -102,6 +103,9 @@ class App extends Component {
                                     </Grid>
                                 </React.Fragment>
                             } />
+                            <Route exact path="/compressed" render={(props) =>
+                            <CompressedLayout  current={current} logs={logs}/>
+                        } />
                         </Switch>
                     </Grid>
                 </MuiThemeProvider>

@@ -7,7 +7,7 @@ export default class StatusOfCoffeeMachine extends React.Component {
         const {currentCoffee, coffeeMachineIsLatest, state_class, german_state_name, duration} = this.props;
 
         return (
-            <Paper className={'machines coffee_machine_paper' +((!coffeeMachineIsLatest)?' deactivated':'')}>
+
                 <Grid item xs={12}>
                     <Typography variant="h5" gutterBottom className={((!coffeeMachineIsLatest)?'deactivated':'')}>
                         Kaffeemaschine
@@ -43,7 +43,7 @@ export default class StatusOfCoffeeMachine extends React.Component {
                         </Table>
                     </Typography>
                 </Grid>
-            </Paper>
+
         );
 
     }

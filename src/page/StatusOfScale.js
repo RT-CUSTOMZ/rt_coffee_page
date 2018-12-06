@@ -7,7 +7,7 @@ export default class StatusOfScale extends React.Component {
         const {scaleIsLatest, currentCoffee} = this.props;
 
         return (
-            <Paper className={'machines scale_paper' +((!scaleIsLatest)?' deactivated':'')  }>
+
                 <Grid item xs={12}>
                     <Typography variant="h5" gutterBottom className={((!scaleIsLatest)?'deactivated':'')}>
                         Waage
@@ -45,7 +45,7 @@ export default class StatusOfScale extends React.Component {
                         </Table>
                     </Typography>
                 </Grid>
-            </Paper>
+
         );
 
     }

@@ -1,14 +1,15 @@
 import React from 'react';
-import {Grid, Paper} from '@material-ui/core'
-import LastEventIcon from "./LastEventIcon";
-import StatusOfCoffeeMachine from "./StatusOfCoffeeMachine";
-import StatusOfScale from "./StatusOfScale";
-import "./Main.css";
+import {CircularProgress, Grid, Paper, Typography} from '@material-ui/core'
+import LastEventIcon from "../LastEventIcon";
+import StatusOfCoffeeMachine from "../StatusOfCoffeeMachine";
+import StatusOfScale from "../StatusOfScale";
+import "../Main.css";
 
 import 'moment-timezone';
 import 'moment/locale/de';
+import CoffeeCup from "../CoffeeCup";
 
-export default class Main extends React.Component {
+export default class CompressedLayout extends React.Component {
     render() {
         const {current} = this.props;
 
@@ -129,40 +130,36 @@ export default class Main extends React.Component {
         }
 
         return (
-            <React.Fragment>
-                    <Grid container justify={'center'}>
-                        <Grid item xs={11}>
-                        <LastEventIcon
-                            current={current}
-                            last_status={last_status}
-                            warning={warning}
-                            Icon={Icon}
-                            CoffeeColor={CoffeeColor}
-                            currentCoffee={currentCoffee}
-                            last_event={last_event}/>
-                        </Grid>
+
+            <Paper className={'machines '+ CoffeeColor}>
+                <Grid container justify={'center'} alignItems={'center'}>
+                    <Grid item xs={4}>
+                        <CoffeeCup Icon={Icon}/>
                     </Grid>
-                 <Grid container >
-                    <Grid item xs={12}>
-                        <Grid container justify={'space-around'} alignItems={'stretch'} item>
-                            <Paper className={'machines coffee_machine_paper' +((!coffeeMachineIsLatest)?' deactivated':'')}>
-                                <StatusOfCoffeeMachine
-                                    coffeeMachineIsLatest={coffeeMachineIsLatest}
-                                    currentCoffee={currentCoffee}
-                                    state_class={state_class}
-                                    german_state_name={german_state_name}
-                                    duration={duration}/>
-                            </Paper>
-                            <Paper className={'machines scale_paper' +((!scaleIsLatest)?' deactivated':'')  }>
-                                <StatusOfScale
-                                    scaleIsLatest={scaleIsLatest}
-                                    fill_level_class={fill_level_class}
-                                    currentCoffee={currentCoffee}/>
-                            </Paper>
-                        </Grid>
+                    <Grid item xs={1}>
+                        <span className={'warning'}>{last_event}</span>
+                        {last_event==="coffee_brewing"?<CircularProgress />:""}
                     </Grid>
-                 </Grid>
-            </React.Fragment>
+                    <Grid item xs={7}>
+                        <Typography variant="subtitle1" gutterBottom>
+                            <span className={'warning'}>{warning}</span><br/>
+                            Der letzte Status kam von der <b>{last_status}</b>.
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    {scaleIsLatest?
+                        <StatusOfScale scaleIsLatest={scaleIsLatest}
+                                       fill_level_class={fill_level_class}
+                                       currentCoffee={currentCoffee}/>:
+                        <StatusOfCoffeeMachine coffeeMachineIsLatest={coffeeMachineIsLatest}
+                                               currentCoffee={currentCoffee}
+                                               state_class={state_class}
+                                               german_state_name={german_state_name}
+                                               duration={duration}/>}
+                </Grid>
+            </Paper>
+
         );
 
     }

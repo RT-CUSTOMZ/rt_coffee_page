@@ -8,14 +8,14 @@ export default class LastEventIcon extends React.Component {
         return (
             <Paper className={'machines '+ CoffeeColor}>
                 <Grid container justify={'center'} alignItems={'center'}>
-                    <Grid item xs={4}>
+                    <Grid item md={4} xs={6}>
                         <CoffeeCup Icon={Icon}/>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid item md={1} xs={6}>
                         <span className={'warning'}>{last_event}</span>
                         {last_event==="coffee_brewing"?<CircularProgress />:""}
                     </Grid>
-                    <Grid item xs={7}>
+                    <Grid item md={7} xs={12}>
                         <Typography variant="subtitle1" gutterBottom>
                             <span className={'warning'}>{warning}</span><br/>
                             Der letzte Status kam von der <b>{last_status}</b>.
