@@ -30,21 +30,26 @@ export default class Main extends React.Component {
 
         let german_state_name = "no"
         let warning = "no";
+
         if(currentCoffee.state === "coffee_ready"){
-
-
-
             german_state_name = "Kaffee ist fertig";
         }else{
             german_state_name = "Kaffee wird gekocht";
+        }
+
+        let last_event;
+        if(timestamp_coffeemachine>timestamp_fillevel){
+            last_event = german_state_name + "!";
+        } else {
+            last_event = currentCoffee.fill_level + "%";
         }
         let fill_level_class;
 
         let state_class;
         let scaleIsLatest;
         let coffeeMachineIsLatest;
-        if (timestamp_coffeemachine < timestamp_fillevel) {
 
+        if (timestamp_coffeemachine < timestamp_fillevel) {
             scaleIsLatest = 1;
             coffeeMachineIsLatest = 0;
         }else{
@@ -75,40 +80,69 @@ export default class Main extends React.Component {
 
         }
         if(scaleIsLatest){
-            if (scaleIsLatest) {
-                last_status = "Waage";
-                if(currentCoffee.fill_level <= 20){
-                    warning = "Der Kaffee ist fast leer! Bitte neuen kochen.";
-                } else {
-                    warning = "";
-                }
-                if(duration>4){
-                    warning = "Der Kaffee ist alt! Bitte neuen kochen.";
-                }
+
+            last_status = "Waage";
+            if(currentCoffee.fill_level <= 20){
+                warning = "Der Kaffee ist fast leer! Bitte neuen kochen.";
             } else {
-                last_status = "Kaffeemaschine";
-                warning = "Bitte die Kaffeekanne auf die Waage stellen.";
-                if(duration>4){
-                    warning = "Der Kaffee ist alt! Bitte neuen kochen.";
-                }
+                warning = "";
+            }
+            if(duration>4){
+                warning = "Der Kaffee ist alt! Bitte neuen kochen.";
+            }
+        } else {
+            last_status = "Kaffeemaschine";
+            warning = "Bitte die Kaffeekanne auf die Waage stellen.";
+            if(duration>4){
+                warning = "Der Kaffee ist alt! Bitte neuen kochen.";
+            }
+        }
+
+        let Icon = "";
+        let CoffeeColor = "";
+
+        if (timestamp_coffeemachine < timestamp_fillevel) {
+            if(currentCoffee.fill_level >= 90){
+                Icon = "icon-coffee_cup_100";
+                CoffeeColor = "coffeeBackground_FillLevel_100";
+            } else if(currentCoffee.fill_level >= 55){
+                Icon = "icon-coffee_cup_66";
+                CoffeeColor = "coffeeBackground_FillLevel_66";
+            } else if(currentCoffee.fill_level >= 20){
+                Icon = "icon-coffee_cup_33";
+                CoffeeColor = "coffeeBackground_FillLevel_33";
+            } else if(currentCoffee.fill_level < 20){
+                Icon = "icon-coffee_cup_0";
+                CoffeeColor = "coffeeBackground_FillLevel_0";
+            }
+        }
+        else
+        {
+            if (currentCoffee.state === "coffee_brewing") {
+                Icon = "icon-coffee_machine_0";
+                CoffeeColor = "coffeeBackground_coffeeBrewing"
+            }
+            if (currentCoffee.state === "coffee_ready") {
+                Icon = "icon-coffee_machine_100";
+                CoffeeColor = "coffeeBackground_coffeeReady"
             }
         }
 
         return (
             <React.Fragment>
+                    <Grid container justify={'center'}>
+                        <Grid item xs={11}>
+                        <LastEventIcon
+                            current={current}
+                            last_status={last_status}
+                            warning={warning}
+                            Icon={Icon}
+                            CoffeeColor={CoffeeColor}
+                            currentCoffee={currentCoffee}
+                            last_event={last_event}/>
+                        </Grid>
+                    </Grid>
                  <Grid container >
-                     <Grid item xs={3}>
-                     </Grid>
-                     <Grid item  xs={6} >
-                         <Grid container>
-                            <LastEventIcon
-                                current={current}
-                                last_status={last_status}
-                                warning={warning}/>
-                         </Grid>
-                     </Grid>
-                     <Grid item xs={3}>
-                     </Grid>
                     <Grid item xs={12}>
                         <Grid container justify={'space-around'} alignItems={'stretch'} item>
                             <StatusOfCoffeeMachine

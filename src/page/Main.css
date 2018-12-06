@@ -1,11 +1,11 @@
 .machines{
     margin-top: 30px;
     padding: 20px;
-    min-width:331px !important;
+    min-width:410px !important;
 }
 
 .warning{
-    color: rgb(255,0,0);
+    font-size:20pt;
 }
 
 [class*='font_FillLevel_'] {
@@ -40,5 +40,5 @@
 
 .deactivated{
     background-color: #EFEFEF!important;
-    color: #777!important;
+    color: #444!important;
 }

@@ -4,11 +4,11 @@ import Moment from "react-moment";
 
 export default class StatusOfScale extends React.Component {
     render() {
-        const {scaleIsLatest, fill_level_class, currentCoffee} = this.props;
+        const {scaleIsLatest, currentCoffee} = this.props;
 
         return (
             <Paper className={'machines scale_paper' +((!scaleIsLatest)?' deactivated':'')  }>
-                <Grid item>
+                <Grid item xs={12}>
                     <Typography variant="h5" gutterBottom className={((!scaleIsLatest)?'deactivated':'')}>
                         Waage
                     </Typography>
@@ -20,7 +20,7 @@ export default class StatusOfScale extends React.Component {
                                         Letzter Füllstand Kaffeekanne
                                     </TableCell>
                                     <TableCell>
-                                        <span className={fill_level_class}>{currentCoffee.fill_level}%</span>
+                                        <span >{currentCoffee.fill_level}%</span>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>

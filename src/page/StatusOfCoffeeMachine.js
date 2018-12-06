@@ -8,7 +8,7 @@ export default class StatusOfCoffeeMachine extends React.Component {
 
         return (
             <Paper className={'machines coffee_machine_paper' +((!coffeeMachineIsLatest)?' deactivated':'')}>
-                <Grid item>
+                <Grid item xs={12}>
                     <Typography variant="h5" gutterBottom className={((!coffeeMachineIsLatest)?'deactivated':'')}>
                         Kaffeemaschine
                     </Typography>
