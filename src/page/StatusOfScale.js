@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Paper, Typography, TableBody, TableRow, TableCell, Table} from '@material-ui/core'
+import {Grid, Typography, TableBody, TableRow, TableCell, Table} from '@material-ui/core'
 import Moment from "react-moment";
 
 export default class StatusOfScale extends React.Component {

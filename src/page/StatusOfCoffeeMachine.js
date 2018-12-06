@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Paper, TableBody, TableCell, TableRow, Typography, Table} from '@material-ui/core'
+import {Grid, TableBody, TableCell, TableRow, Typography, Table} from '@material-ui/core'
 import Moment from "react-moment";
 
 export default class StatusOfCoffeeMachine extends React.Component {

@@ -1,6 +1,5 @@
 import React from 'react';
-import {CircularProgress, Grid, Paper, Typography} from '@material-ui/core'
-import LastEventIcon from "../LastEventIcon";
+import {CircularProgress, Grid, Paper, Typography} from '@material-ui/core';
 import StatusOfCoffeeMachine from "../StatusOfCoffeeMachine";
 import StatusOfScale from "../StatusOfScale";
 import "../Main.css";
