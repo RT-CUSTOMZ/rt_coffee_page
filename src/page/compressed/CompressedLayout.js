@@ -7,7 +7,6 @@ import 'moment-timezone';
 import 'moment/locale/de';
 import CoffeeCup from "../CoffeeCup";
 import Moment from "react-moment";
-import TableHead from "@material-ui/core/es/TableHead/TableHead";
 
 export default class CompressedLayout extends React.Component {
     render() {
