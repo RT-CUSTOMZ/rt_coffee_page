@@ -3,29 +3,29 @@
 }
 
 /*  https://color.adobe.com/de/create/color-wheel/?base=2&rule=Custom&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0.10579766442460276,0.9176470588235294,0.44313725490196076,0.9145364649949733,0.9450980392156862,0.22741958649183075,1,0.531382638706873,0,0.9254901960784314,0.26666666666666666,0.03529411764705882,0.1213975711575307,0.7744927799050627,0.9&swatchOrder=0,1,2,3,4  */
-.coffeeBackground_FillLevel_100 {
+.coffee_FillLevel_100 {
     color: rgb(27,234,113) !important;
 }
 
-.coffeeBackground_FillLevel_66 {
+.coffee_FillLevel_66 {
     color: rgb(223,241,58) !important;
 }
 
-.coffeeBackground_FillLevel_33 {
+.coffee_FillLevel_33 {
     color: rgb(255,136,0) !important;
 }
 
-.coffeeBackground_FillLevel_0 {
+.coffee_FillLevel_0 {
     color: rgb(236,68,9) !important;
 }
 
-.coffeeBackground_coffeeBrewing {
+.coffee_coffeeBrewing {
     color: rgb(31,197,229) !important;
 }
 
-.coffeeBackground_coffeeReady{
+.coffee_coffeeReady{
     color: rgb(27,234,113) !important;
 }
-[class*='coffeeBackground_']{
+[class*='coffee_']{
     padding: 20px 20px 15px 20px;
 }
