@@ -7,6 +7,7 @@ import 'moment-timezone';
 import 'moment/locale/de';
 import CoffeeCup from "../CoffeeCup";
 import Moment from "react-moment";
+import TableHead from "@material-ui/core/es/TableHead/TableHead";
 
 export default class CompressedLayout extends React.Component {
     render() {
@@ -55,8 +56,8 @@ export default class CompressedLayout extends React.Component {
             scaleIsLatest = 0;
             coffeeMachineIsLatest = 1;
         }
-        let duration = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
-        if (scaleIsLatest||duration>4) {
+        let time_since_brewing = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
+        if (scaleIsLatest||time_since_brewing>4) {
 
         } else {
             if(currentCoffee.state === "coffee_ready") {
@@ -66,6 +67,7 @@ export default class CompressedLayout extends React.Component {
             }
 
         }
+        let time_since_weighing = moment.duration(moment().diff(currentCoffee.time_fill_level)).asHours();
         if(scaleIsLatest){
 
             last_status = "Waage";
@@ -74,13 +76,13 @@ export default class CompressedLayout extends React.Component {
             } else {
                 warning = "";
             }
-            if(duration>4){
+            if(time_since_brewing>4){
                 warning = "Der Kaffee ist alt! Bitte neuen kochen.";
             }
         } else {
             last_status = "Kaffeemaschine";
             warning = "Bitte die Kaffeekanne auf die Waage stellen.";
-            if(duration>4){
+            if(time_since_brewing>4){
                 warning = "Der Kaffee ist alt! Bitte neuen kochen.";
             }
         }
@@ -150,13 +152,23 @@ export default class CompressedLayout extends React.Component {
                                                     <TableCell>
                                                         <span className={state_class}>{german_state_name}</span>
                                                     </TableCell>
+                                                    <TableCell>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                    </TableCell>
                                                 </TableRow>
                                                 <TableRow>
                                                     <TableCell>
                                                         Zuletzt gekocht
                                                     </TableCell>
                                                     <TableCell>
-                                                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time_coffee_machine}</Moment>
+                                                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time_coffee_machine}</Moment> <br/>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time_coffee_machine}</Moment> <br/>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        vor genau {time_since_brewing.toFixed(2)} Stunden
                                                     </TableCell>
                                                 </TableRow>
                                                 <TableRow>
@@ -166,13 +178,23 @@ export default class CompressedLayout extends React.Component {
                                                     <TableCell>
                                                         {currentCoffee.fill_level}%
                                                     </TableCell>
+                                                    <TableCell>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                    </TableCell>
                                                 </TableRow>
                                                 <TableRow>
                                                     <TableCell>
-                                                        Zuletzt gewogen um
+                                                        Zuletzt gewogen
                                                     </TableCell>
                                                     <TableCell>
-                                                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time_fill_level}</Moment> ({duration.toFixed(2)})
+                                                        <Moment locale="de" tz="Europe/Paris" format="LTS">{currentCoffee.time_fill_level}</Moment> <br/>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Moment locale="de" tz="Europe/Paris" fromNow>{currentCoffee.time_fill_level}</Moment> <br/>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        vor genau {time_since_weighing.toFixed(2)} Stunden
                                                     </TableCell>
                                                 </TableRow>
                                             </TableBody>
