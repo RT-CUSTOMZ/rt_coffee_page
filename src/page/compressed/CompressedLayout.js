@@ -43,7 +43,6 @@ export default class CompressedLayout extends React.Component {
         } else {
             last_event = currentCoffee.fill_level + "%";
         }
-        let fill_level_class;
 
         let state_class;
         let scaleIsLatest;
@@ -58,19 +57,7 @@ export default class CompressedLayout extends React.Component {
         }
         let duration = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
         if (scaleIsLatest||duration>4) {
-            if(duration>4){
-                fill_level_class = "font_FillLevel_0";
-            } else {
-                if(currentCoffee.fill_level >= 90){
-                    fill_level_class = "font_FillLevel_100";
-                } else if(currentCoffee.fill_level >= 55){
-                    fill_level_class = "font_FillLevel_66";
-                } else if(currentCoffee.fill_level >= 20){
-                    fill_level_class = "font_FillLevel_33";
-                } else if(currentCoffee.fill_level < 20){
-                    fill_level_class = "font_FillLevel_0";
-                }
-            }
+
         } else {
             if(currentCoffee.state === "coffee_ready") {
                 state_class = 'font_coffeeReady';
