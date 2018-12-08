@@ -8,7 +8,7 @@ import 'moment/locale/de';
 import CoffeeCup from "../CoffeeCup";
 import Moment from "react-moment";
 
-export default class CompressedLayout extends React.Component {
+export default class RaspberryPiLayout extends React.Component {
     render() {
         const {current} = this.props;
 

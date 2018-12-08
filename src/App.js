@@ -5,7 +5,7 @@ import Main from "./page/Main";
 import {createMuiTheme, Grid, MuiThemeProvider} from '@material-ui/core'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import CompressedLayout from "./page/compressed/CompressedLayout";
+import RaspberryPiLayout from "./page/RaspberryPi/RaspberryPiLayout";
 
 class App extends Component {
     constructor(props) {
@@ -104,8 +104,11 @@ class App extends Component {
                                 </React.Fragment>
                             } />
                             <Route exact path="/compressed" render={(props) =>
-                            <CompressedLayout  current={current} logs={logs}/>
+                            <RaspberryPiLayout current={current} logs={logs}/>
                         } />
+                            <Route exact path="/raspberrypi" render={(props) =>
+                                <RaspberryPiLayout current={current} logs={logs}/>
+                            } />
                         </Switch>
                     </Grid>
                 </MuiThemeProvider>
