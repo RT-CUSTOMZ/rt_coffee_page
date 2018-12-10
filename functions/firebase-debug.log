@@ -1,0 +1,83 @@
+[debug] [2018-12-02T20:29:59.041Z] ----------------------------------------------------------------------
+[debug] [2018-12-02T20:29:59.044Z] Command:       /usr/bin/node /usr/bin/firebase functions:shell
+[debug] [2018-12-02T20:29:59.044Z] CLI Version:   6.1.1
+[debug] [2018-12-02T20:29:59.044Z] Platform:      linux
+[debug] [2018-12-02T20:29:59.044Z] Node Version:  v8.12.0
+[debug] [2018-12-02T20:29:59.044Z] Time:          Sun Dec 02 2018 21:29:59 GMT+0100 (CET)
+[debug] [2018-12-02T20:29:59.045Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-02T20:29:59.055Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-02T20:29:59.055Z] > authorizing via signed-in user
+[debug] [2018-12-02T20:29:59.056Z] [iam] checking project coffee-page-moc for permissions ["firebase.projects.get"]
+[debug] [2018-12-02T20:29:59.058Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/coffee-page-moc:testIamPermissions  
+
+[debug] [2018-12-02T20:29:59.994Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-02T20:30:00.992Z] Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+    at Object.fs.mkdirSync (fs.js:885:18)
+    at Object.assertLogsPath (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
+    at new Controller (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)
+    at FunctionsEmulator.start (/usr/lib/node_modules/firebase-tools/lib/functionsEmulator.js:102:23)
+    at Command.module.exports [as _action] (/usr/lib/node_modules/firebase-tools/lib/functionsShellCommandAction.js:13:10)
+    at /usr/lib/node_modules/firebase-tools/lib/command.js:158:37
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-12-02T20:32:13.101Z] ----------------------------------------------------------------------
+[debug] [2018-12-02T20:32:13.104Z] Command:       /usr/bin/node /usr/bin/firebase functions:shell
+[debug] [2018-12-02T20:32:13.104Z] CLI Version:   6.1.1
+[debug] [2018-12-02T20:32:13.104Z] Platform:      linux
+[debug] [2018-12-02T20:32:13.104Z] Node Version:  v8.12.0
+[debug] [2018-12-02T20:32:13.105Z] Time:          Sun Dec 02 2018 21:32:13 GMT+0100 (CET)
+[debug] [2018-12-02T20:32:13.105Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-02T20:32:13.115Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-02T20:32:13.115Z] > authorizing via signed-in user
+[debug] [2018-12-02T20:32:13.116Z] [iam] checking project coffee-page-moc for permissions ["firebase.projects.get"]
+[debug] [2018-12-02T20:32:13.118Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/coffee-page-moc:testIamPermissions  
+
+[debug] [2018-12-02T20:32:14.063Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-02T20:32:14.597Z] Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+    at Object.fs.mkdirSync (fs.js:885:18)
+    at Object.assertLogsPath (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
+    at new Controller (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)
+    at FunctionsEmulator.start (/usr/lib/node_modules/firebase-tools/lib/functionsEmulator.js:102:23)
+    at Command.module.exports [as _action] (/usr/lib/node_modules/firebase-tools/lib/functionsShellCommandAction.js:13:10)
+    at /usr/lib/node_modules/firebase-tools/lib/command.js:158:37
+    at <anonymous>
+    at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-12-02T20:33:32.182Z] ----------------------------------------------------------------------
+[debug] [2018-12-02T20:33:32.185Z] Command:       /usr/bin/node /usr/bin/firebase serve --only functions
+[debug] [2018-12-02T20:33:32.185Z] CLI Version:   6.1.1
+[debug] [2018-12-02T20:33:32.185Z] Platform:      linux
+[debug] [2018-12-02T20:33:32.185Z] Node Version:  v8.12.0
+[debug] [2018-12-02T20:33:32.185Z] Time:          Sun Dec 02 2018 21:33:32 GMT+0100 (CET)
+[debug] [2018-12-02T20:33:32.186Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-02T20:33:32.196Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-02T20:33:32.197Z] > authorizing via signed-in user
+[debug] [2018-12-02T20:33:32.197Z] [iam] checking project coffee-page-moc for permissions ["firebase.projects.get"]
+[debug] [2018-12-02T20:33:32.199Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/coffee-page-moc:testIamPermissions  
+
+[debug] [2018-12-02T20:33:33.111Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-02T20:33:33.114Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/coffee-page-moc  
+ 
+[debug] [2018-12-02T20:33:33.952Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/sguelland/WebstormProjects/coffee_page_moc'...
+[info] 
+[debug] [2018-12-02T20:33:34.567Z] Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+    at Object.fs.mkdirSync (fs.js:885:18)
+    at Object.assertLogsPath (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
+    at new Controller (/usr/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)
+    at FunctionsEmulator.start (/usr/lib/node_modules/firebase-tools/lib/functionsEmulator.js:102:23)
+    at Object.start (/usr/lib/node_modules/firebase-tools/lib/serve/functions.js:7:33)
+    at /usr/lib/node_modules/firebase-tools/lib/serve/index.js:15:23
+    at arrayMap (/usr/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:639:23)
+    at Function.map (/usr/lib/node_modules/firebase-tools/node_modules/lodash/lodash.js:9556:14)
+    at _serve (/usr/lib/node_modules/firebase-tools/lib/serve/index.js:13:26)
+    at Command.module.exports.Command.description.option.option.option.option.before.action [as _action] (/usr/lib/node_modules/firebase-tools/lib/commands/serve.js:55:12)
+[error] 
+[error] Error: An unexpected error has occurred.
