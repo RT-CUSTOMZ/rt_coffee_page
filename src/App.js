@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import base from './re-base.js'
 import Header from "./page/Header";
+import Logs from "./page/Logs";
+import Statistics from "./page/Statistics";
 import Main from "./page/Main";
 import {createMuiTheme, Grid, MuiThemeProvider} from '@material-ui/core'
 import { Route, Switch } from 'react-router-dom';
@@ -108,6 +110,22 @@ class App extends Component {
                         } />
                             <Route exact path="/raspberrypi" render={(props) =>
                                 <RaspberryPiLayout current={current} logs={logs}/>
+                            } />
+                            <Route exact path="/statistics" render={(props) =>
+                                <React.Fragment>
+                                    <Header current={current} logs={logs}/>
+                                    <Grid item xs={12}>
+                                        <Statistics current={current} logs={logs}/>
+                                    </Grid>
+                                </React.Fragment>
+                            } />
+                            <Route exact path="/logs" render={(props) =>
+                                <React.Fragment>
+                                    <Header current={current} logs={logs}/>
+                                    <Grid item xs={12}>
+                                        <Logs current={current} logs={logs}/>
+                                    </Grid>
+                                </React.Fragment>
                             } />
                         </Switch>
                     </Grid>

@@ -1,7 +1,7 @@
 import React from 'react';
-import {CircularProgress, Grid, Table, TableBody, TableCell, TableRow, Typography} from '@material-ui/core';
+import {CircularProgress, Grid, Table, TableBody, TableCell, TableRow, Typography, Paper} from '@material-ui/core';
 
-import "../Main.css";
+import "../../css/Main.css";
 
 import 'moment-timezone';
 import 'moment/locale/de';
@@ -136,9 +136,11 @@ export default class RaspberryPiLayout extends React.Component {
                     </Grid>
                     <Grid container justify={"center"} alignItems={"center"}>
                         <Grid  item xs={12}>
-                            <Typography variant="h5" gutterBottom className={((!coffeeMachineIsLatest)?'deactivated':'')}>
-                                Kaffeemaschine
-                            </Typography>
+                            <Paper className={"heading"}>
+                                <Typography variant="h5" gutterBottom className={((!coffeeMachineIsLatest)?'deactivated':'')}>
+                                    Kaffeemaschine
+                                </Typography>
+                            </Paper>
                             <Typography variant="subtitle1" gutterBottom>
                                 <Grid container justify={"center"} alignItems={"center"}>
                                     <Grid item>

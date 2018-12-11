@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .machines{
     margin-top: 30px;
     padding: 20px;
@@ -41,4 +44,8 @@
 .deactivated{
     background-color: #EFEFEF!important;
     color: #444!important;
+}
+
+.heading {
+    background-color: #EFEFEF!important;
 }

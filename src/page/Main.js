@@ -3,7 +3,7 @@ import {Grid, Paper} from '@material-ui/core'
 import LastEventIcon from "./LastEventIcon";
 import StatusOfCoffeeMachine from "./StatusOfCoffeeMachine";
 import StatusOfScale from "./StatusOfScale";
-import "./Main.css";
+import "../css/Main.css";
 
 import 'moment-timezone';
 import 'moment/locale/de';

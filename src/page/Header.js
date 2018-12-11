@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Button} from '@material-ui/core';
 
 export default class Header extends React.Component {
     render() {
@@ -9,6 +9,15 @@ export default class Header extends React.Component {
                     <Typography variant="h6" color="inherit">
                         Kaffee Status
                     </Typography>
+                    <Button color="primary" href={'/'}>
+                        Dashboard
+                    </Button>
+                    <Button color="primary" href={'/statistics'}>
+                        Statistik
+                    </Button>
+                    <Button color="primary" href={'/logs'}>
+                        Log
+                    </Button>
                 </Toolbar>
             </AppBar>
         )

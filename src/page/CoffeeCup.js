@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/coffee_font.css';
-import './CoffeeCup.css';
+import '../css/CoffeeCup.css';
 
 export default class CoffeeCup extends React.Component {
     render() {
