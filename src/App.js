@@ -8,6 +8,7 @@ import {createMuiTheme, Grid, MuiThemeProvider} from '@material-ui/core'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import RaspberryPiLayout from "./page/RaspberryPi/RaspberryPiLayout";
+import Messaging from "./page/Messaging";
 
 class App extends Component {
     constructor(props) {
@@ -124,6 +125,14 @@ class App extends Component {
                                     <Header current={current} logs={logs}/>
                                     <Grid item xs={12}>
                                         <Logs current={current} logs={logs}/>
+                                    </Grid>
+                                </React.Fragment>
+                            } />
+                            <Route exact path="/messaging" render={(props) =>
+                                <React.Fragment>
+                                    <Header current={current} logs={logs}/>
+                                    <Grid item xs={12}>
+                                        <Messaging current={current} logs={logs}/>
                                     </Grid>
                                 </React.Fragment>
                             } />
