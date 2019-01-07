@@ -1,5 +1,6 @@
 import React from 'react';
-
+import "../css/logs.css"
+import {Table, TableRow, TableBody, TableCell, TableHead} from '@material-ui/core'
 export default class Logs extends React.Component {
     /*componentDidMount () {
         const script = document.createElement("script");
@@ -15,33 +16,93 @@ export default class Logs extends React.Component {
     }*/
 
     render() {
-      /*  let getJSON = function(url, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.responseType = 'json';
-            xhr.onload = function() {
-                var status = xhr.status;
-                if (status === 200) {
-                    callback(null, xhr.response);
-                } else {
-                    callback(status, xhr.response);
-                }
-            };
-            xhr.send();
-        };
 
-        getJSON('https://coffee-page-moc.firebaseio.com/.json?print=pretty',
-            function(err, data) {
-                if (err !== null) {
-                    alert('Something went wrong: ' + err);
-                } else {
-                    alert('Your query count: ' + JSON.stringify(data.query));
-                }
-            });*/
+        const {current, logs} = this.props;
 
+        let currentCoffee = Object.keys(current).reduce(function (total, currentValue) {
+            return {
+                state : current[currentValue].coffee_machine.state,
+                time_coffee_machine : current[currentValue].coffee_machine.time,
+                fill_level : current[currentValue].scale.fill_level,
+                time_fill_level: current[currentValue].scale.time,
+            }
+
+        },0);
 
         return(
-            <div id={'test'} />
+            <div>
+                <div id={'test'}/>
+                <h1>Current</h1>
+                <pre>
+                    <Table>
+                        <TableHead>
+                        <TableRow>
+                            <TableCell>state</TableCell>
+                            <TableCell>timestamp coffee machine</TableCell>
+                            <TableCell>fill_level</TableCell>
+                            <TableCell>timestamp scale</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>{currentCoffee.state}</TableCell>
+                                <TableCell>{currentCoffee.time_coffee_machine}</TableCell>
+                                <TableCell>{currentCoffee.fill_level}</TableCell>
+                                <TableCell>{currentCoffee.time_fill_level}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </pre>
+                <h1>History</h1>
+
+
+                <pre>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>state</TableCell>
+                                <TableCell>timestamp</TableCell>
+                                <TableCell>fill_level</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+
+                            {
+                                Object.keys(logs).map(currentMachine => {
+                                    let eachMachine = logs[currentMachine];
+
+                                    return(
+                                        Object.keys(eachMachine).map(day =>{
+                                            let eachDay = eachMachine[day];
+
+                                            return(
+                                                Object.keys(eachDay).map(time =>{
+                                                    let eachTime = eachDay[time];
+                                                        return(
+                                                            <TableRow>
+                                                                <TableCell>{eachTime.state}</TableCell>
+                                                                <TableCell>{eachTime.timestamp}</TableCell>
+                                                                <TableCell>{eachTime.fill_level}</TableCell>
+                                                            </TableRow>
+
+                                                        );
+
+
+                                                }, this)
+                                            )
+                                        }, this)
+                                    )
+
+
+                                }, this)
+                            }
+                        </TableBody>
+                    </Table>
+                </pre>
+            </div>
+
         )
+
+
     }
 }
