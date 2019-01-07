@@ -1,19 +1,7 @@
 import React from 'react';
-import "../css/logs.css"
 import {Table, TableRow, TableBody, TableCell, TableHead} from '@material-ui/core'
 export default class Logs extends React.Component {
-    /*componentDidMount () {
-        const script = document.createElement("script");
 
-        script.src = "https://coffee-page-moc.firebaseio.com/.json?print=pretty";
-        script.async = true;
-        script.innerHTML = "document.write('This is output by document.write()!')";
-        script.id = "testy";
-        script.success = function(data){
-            document.getElementById("divy").innerHTML = data
-        }
-        this.instance.appendChild(script);
-    }*/
 
     render() {
 
