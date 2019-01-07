@@ -48,6 +48,7 @@ export default class Main extends React.Component {
         let state_class;
         let scaleIsLatest;
         let coffeeMachineIsLatest;
+        let coffeeIsOld;
 
         if (timestamp_coffeemachine < timestamp_fillevel) {
             scaleIsLatest = 1;
@@ -56,9 +57,9 @@ export default class Main extends React.Component {
             scaleIsLatest = 0;
             coffeeMachineIsLatest = 1;
         }
-        let duration = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
-        if (scaleIsLatest||duration>4) {
-            if(duration>4){
+        let time_since_brewing = moment.duration(moment().diff(currentCoffee.time_coffee_machine)).asHours();
+        if (scaleIsLatest||time_since_brewing>4) {
+            if(time_since_brewing>4){
                 fill_level_class = "font_FillLevel_0";
             } else {
                 if(currentCoffee.fill_level >= 90){
@@ -87,13 +88,15 @@ export default class Main extends React.Component {
             } else {
                 warning = "";
             }
-            if(duration>4){
+            if(time_since_brewing>4){
+                coffeeIsOld = 1;
                 warning = "Der Kaffee ist alt! Bitte neuen kochen.";
             }
         } else {
             last_status = "Kaffeemaschine";
             warning = "Bitte die Kaffeekanne auf die Waage stellen.";
-            if(duration>4){
+            if(time_since_brewing>4){
+                coffeeIsOld = 1;
                 warning = "Der Kaffee ist alt! Bitte neuen kochen.";
             }
         }
@@ -101,19 +104,25 @@ export default class Main extends React.Component {
         let Icon = "";
         let CoffeeColor = "";
 
-        if (timestamp_coffeemachine < timestamp_fillevel) {
-            if(currentCoffee.fill_level >= 90){
-                Icon = "icon-coffee_cup_100";
-                CoffeeColor = "coffee_FillLevel_100";
-            } else if(currentCoffee.fill_level >= 55){
-                Icon = "icon-coffee_cup_66";
-                CoffeeColor = "coffee_FillLevel_66";
-            } else if(currentCoffee.fill_level >= 20){
-                Icon = "icon-coffee_cup_33";
-                CoffeeColor = "coffee_FillLevel_33";
-            } else if(currentCoffee.fill_level < 20){
+        if (timestamp_coffeemachine < timestamp_fillevel || coffeeIsOld) {
+            if(coffeeIsOld){
                 Icon = "icon-coffee_cup_0";
                 CoffeeColor = "coffee_FillLevel_0";
+            }
+            else {
+                if(currentCoffee.fill_level >= 90){
+                    Icon = "icon-coffee_cup_100";
+                    CoffeeColor = "coffee_FillLevel_100";
+                } else if(currentCoffee.fill_level >= 55){
+                    Icon = "icon-coffee_cup_66";
+                    CoffeeColor = "coffee_FillLevel_66";
+                } else if(currentCoffee.fill_level >= 20){
+                    Icon = "icon-coffee_cup_33";
+                    CoffeeColor = "coffee_FillLevel_33";
+                } else if(currentCoffee.fill_level < 20){
+                    Icon = "icon-coffee_cup_0";
+                    CoffeeColor = "coffee_FillLevel_0";
+                }
             }
         }
         else
@@ -151,7 +160,7 @@ export default class Main extends React.Component {
                                     currentCoffee={currentCoffee}
                                     state_class={state_class}
                                     german_state_name={german_state_name}
-                                    duration={duration}/>
+                                    duration={time_since_brewing}/>
                             </Paper>
                             <Paper className={'machines scale_paper' +((!scaleIsLatest)?' deactivated':'')  }>
                                 <StatusOfScale

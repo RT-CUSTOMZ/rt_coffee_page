@@ -85,6 +85,7 @@ export default class RaspberryPiLayout extends React.Component {
             warning = "Bitte die Kaffeekanne auf die Waage stellen.";
             if(time_since_brewing>4){
                 warning = "Der Kaffee ist alt! Bitte neuen kochen.";
+                coffeeIsOld = 1;
             }
         }
 
