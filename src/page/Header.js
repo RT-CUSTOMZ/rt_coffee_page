@@ -18,6 +18,9 @@ export default class Header extends React.Component {
                     <Button color="primary" href={'/logs'}>
                         Log
                     </Button>
+                    <Button color="primary" href={'/messaging'}>
+                        Messaging
+                    </Button>
                 </Toolbar>
             </AppBar>
         )

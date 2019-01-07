@@ -1,3 +1,14 @@
+## generate test messages
+
+```json
+{
+    "state":"ReadyState",
+    "timestamp":"2019-01-07T15:02:10.507Z"
+}
+```
+
+to mqtt topic: coffee/0/state
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
