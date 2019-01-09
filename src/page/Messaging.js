@@ -17,12 +17,12 @@ export default class Messaging extends React.Component {
     };
 
 
-  /*  componentDidMount() {
-        this.setState({ ReceiveMessages: window.localStorage.getItem('ReceiveMessages'),
-                              // 'ReceiveBrewingMessages': window.localStorage.getItem('ReceiveBrewingMessages'),
-                              // 'ReceiveReadyMessages': window.localStorage.getItem('ReceiveReadyMessages')
+    componentDidMount() {
+        this.setState({ 'ReceiveMessages': window.localStorage.getItem('ReceiveMessages') === 'true',
+                              'ReceiveBrewingMessages': window.localStorage.getItem('ReceiveBrewingMessages') === 'true',
+                              'ReceiveReadyMessages':window.localStorage.getItem('ReceiveReadyMessages') === 'true'
         });
-    }*/
+    }
 
     render() {
         const { token, message } = this.props;
