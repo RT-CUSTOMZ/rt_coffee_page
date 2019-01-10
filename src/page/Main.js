@@ -139,21 +139,24 @@ export default class Main extends React.Component {
 
         return (
             <React.Fragment>
-                    <Grid container justify={'center'}>
-                        <Grid item xs={11}>
-                        <LastEventIcon
-                            current={current}
-                            last_status={last_status}
-                            warning={warning}
-                            Icon={Icon}
-                            CoffeeColor={CoffeeColor}
-                            currentCoffee={currentCoffee}
-                            last_event={last_event}/>
+                <Grid container  >
+                    <Grid item xs={12}>
+                        <Grid container item justify={'space-around'} alignItems={'stretch'}>
+                            <Paper className={'machines '+ CoffeeColor}>
+                                <LastEventIcon
+                                    current={current}
+                                    last_status={last_status}
+                                    warning={warning}
+                                    Icon={Icon}
+                                    currentCoffee={currentCoffee}
+                                    last_event={last_event}/>
+                            </Paper>
                         </Grid>
                     </Grid>
-                 <Grid container >
+                </Grid>
+                 <Grid container>
                     <Grid item xs={12}>
-                        <Grid container justify={'space-around'} alignItems={'stretch'} item>
+                        <Grid container item alignItems={'stretch'} justify={'space-around'}>
                             <Paper className={'machines coffee_machine_paper' +((!coffeeMachineIsLatest)?' deactivated':'')}>
                                 <StatusOfCoffeeMachine
                                     coffeeMachineIsLatest={coffeeMachineIsLatest}

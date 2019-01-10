@@ -16,7 +16,7 @@ export default class Logs extends React.Component {
             }
 
         },0);
-
+        let i = 0;
         return(
             <div>
                 <div id={'test'}/>
@@ -46,14 +46,14 @@ export default class Logs extends React.Component {
 
                 <pre>
                     <Table>
-                        <TableHead>
+                        <TableHead key={'1'}>
                             <TableRow>
                                 <TableCell>state</TableCell>
                                 <TableCell>timestamp</TableCell>
                                 <TableCell>fill_level</TableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                        <TableBody key={'2'}>
 
                             {
                                 Object.keys(logs).map(currentMachine => {
@@ -66,11 +66,12 @@ export default class Logs extends React.Component {
                                             return(
                                                 Object.keys(eachDay).map(time =>{
                                                     let eachTime = eachDay[time];
+                                                        i=i+1;
                                                         return(
-                                                            <TableRow>
-                                                                <TableCell>{eachTime.state}</TableCell>
-                                                                <TableCell>{eachTime.timestamp}</TableCell>
-                                                                <TableCell>{eachTime.fill_level}</TableCell>
+                                                            <TableRow key={'r'+i}>
+                                                                <TableCell key={'r'+i+'-1-'+eachTime.state}>{eachTime.state}</TableCell>
+                                                                <TableCell key={'r'+i+'-2-'+eachTime.timestamp}>{eachTime.timestamp}</TableCell>
+                                                                <TableCell key={'r'+i+'-3-'+eachTime.fill_level}>{eachTime.fill_level}</TableCell>
                                                             </TableRow>
 
                                                         );

@@ -1,12 +1,11 @@
 import React from 'react';
-import {Grid, Paper, Typography, CircularProgress} from '@material-ui/core'
+import {Grid, Typography, CircularProgress} from '@material-ui/core'
 import CoffeeCup from "./CoffeeCup";
 
 export default class LastEventIcon extends React.Component {
     render() {
-        const {last_status, warning, Icon, CoffeeColor, last_event} = this.props;
+        const {last_status, warning, Icon, last_event} = this.props;
         return (
-            <Paper className={'machines '+ CoffeeColor}>
                 <Grid container justify={'center'} alignItems={'center'}>
                     <Grid item md={4} xs={6}>
                         <CoffeeCup Icon={Icon}/>
@@ -22,7 +21,7 @@ export default class LastEventIcon extends React.Component {
                         </Typography>
                     </Grid>
                 </Grid>
-            </Paper>
+
         );
 
     }
