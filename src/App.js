@@ -119,19 +119,6 @@ class App extends Component {
                                     </Grid>
                                 </React.Fragment>
                             } />
-                            <Route exact path="/log" render={(props) =>
-                                <React.Fragment>
-                                    <Grid item xs={12}>
-                                        <Header current={current} logs={logs} />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Main current={current} logs={logs} />
-                                    </Grid>
-                                </React.Fragment>
-                            } />
-                            <Route exact path="/compressed" render={(props) =>
-                                <RaspberryPiLayout current={current} logs={logs} />
-                            } />
                             <Route exact path="/raspberrypi" render={(props) =>
                                 <RaspberryPiLayout current={current} logs={logs} />
                             } />

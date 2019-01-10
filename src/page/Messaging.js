@@ -1,5 +1,6 @@
 import React from 'react';
-import {Switch, FormControlLabel, FormGroup} from '@material-ui/core';
+import {Switch, FormControlLabel, FormGroup, Grid} from '@material-ui/core';
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 export default class Messaging extends React.Component {
     state = {
@@ -14,6 +15,7 @@ export default class Messaging extends React.Component {
             console.log('Updating ' + name + ' in Local Storage to ' + this.state[name]);
             window.localStorage.setItem(name, this.state[name]);
         });
+
     };
 
 
@@ -38,40 +40,39 @@ export default class Messaging extends React.Component {
 
 
         return (
-            <div>
-                <h3>Firebase Cloud Messaging</h3>
-                <div>{tokenElement}</div>
-                <div>{messageElement}</div>
-                <FormGroup >
-                    <FormControlLabel control={
-                        <Switch
-                            checked={this.state.ReceiveMessages}
-                            onChange={this.handleChange('ReceiveMessages')}
-                        />
-                    } label="Receive Messages" />
+            <Grid container item>
+                <Grid item xs={12}>
+                    <Typography variant={"h5"}>Firebase Cloud Messaging</Typography><br/>
+                </Grid>
+                <Grid item xs={12}>{tokenElement}</Grid><br/>
+                <Grid item xs={12}>{messageElement}</Grid><br/>
+                <Grid item xs={12}>
+                    <FormGroup >
+                        <FormControlLabel control={
+                            <Switch
+                                checked={this.state.ReceiveMessages}
+                                onChange={this.handleChange('ReceiveMessages')}
+                            />
+                        } label="Receive Messages" />
 
 
-                    <FormControlLabel control={
-                        <Switch
-                            checked={this.state.ReceiveBrewingMessages}
-                            onChange={this.handleChange('ReceiveBrewingMessages')}
-                        />
-                    } label="Receive Coffee Brewing Messages" />
-                    <FormControlLabel control={
-                        <Switch
-                            checked={this.state.ReceiveBrewingMessages}
-                            onChange={this.handleChange('ReceiveBrewingMessages')}
-                        />
-                    } label="Receive Coffee Brewing Messages" />
-
-                    <FormControlLabel control={
-                        <Switch
-                            checked={this.state.ReceiveReadyMessages}
-                            onChange={this.handleChange('ReceiveReadyMessages')}
-                        />
-                    } label="Receive Coffee Ready Messages" />
-                </FormGroup>
-            </div>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={this.state.ReceiveBrewingMessages}
+                                onChange={this.handleChange('ReceiveBrewingMessages')}
+                                disabled={false === this.state.ReceiveMessages}
+                            />
+                        } label="Receive Coffee Brewing Messages" />
+                        <FormControlLabel control={
+                            <Switch
+                                checked={this.state.ReceiveReadyMessages}
+                                onChange={this.handleChange('ReceiveReadyMessages')}
+                                disabled={false === this.state.ReceiveMessages}
+                            />
+                        } label="Receive Coffee Ready Messages" />
+                    </FormGroup>
+                </Grid>
+            </Grid>
 
         )
     }
