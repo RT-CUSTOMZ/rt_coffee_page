@@ -1,6 +1,10 @@
 importScripts("https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js");
 
+importScripts("http://cdn.date-fns.org/v2.0.0-alpha0/date_fns.min.js");
+
+const maxNotificationAgeInHours = 2;
+
 const config = {
     messagingSenderId: "603725741022"
  };
@@ -15,13 +19,31 @@ const config = {
 messaging.setBackgroundMessageHandler(function(payload) {
     console.log('[firebase-messaging-sw.js] Received background message ', payload);
     // Customize notification here
-    const notificationTitle = payload['data']['type'];
-    const notificationOptions = {
-        body: payload['data']['type'],
-        icon: '/icon.png'
-    };
+    const time = dateFns.parse(payload['data']['timestamp']);
+    const oldAgeTimeBorder = dateFns.subHours(new Date(), maxNotificationAgeInHours)
 
-    return self.registration.showNotification(notificationTitle,
-        notificationOptions);
+    // Check for to old messages
+    if(1 !== dateFns.compareAsc(oldAgeTimeBorder, time)) {
+
+        const dateToString = dateFns.format(time, 'HH:mm');
+
+        if(0 === payload['data']['type'].localeCompare("coffee_ready")) {
+            const notificationMessage = "Coffee ready since " + dateToString;
+            const notificationTitle = notificationMessage
+            const notificationOptions = {
+                body: notificationMessage,
+                icon: '/icon.png'
+            };
+
+            return self.registration.showNotification(notificationTitle,
+                notificationOptions);
+        }
+    }
+    else {
+        console.log("drop message, it is to old");
+    }
+    // Normaly a Browser forces to show a notification
+    // https://stackoverflow.com/questions/33092065/google-chrome-silent-push-notifications
+    return new Promise(function () {});
 });
 // [END background_handler]
