@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/piapiekarek/coffee_page_moc.svg?branch=master)](https://travis-ci.org/piapiekarek/coffee_page_moc)
+
 ## generate test messages
 
 ```json
