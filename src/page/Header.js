@@ -2,8 +2,6 @@ import React from 'react';
 import {AppBar, Toolbar, Typography, Button, Hidden, IconButton, List, ListItem, ListItemText, Drawer, ListItemIcon} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
-import NotesIcon from '@material-ui/icons/Notes';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 
 export default class Header extends React.Component {
