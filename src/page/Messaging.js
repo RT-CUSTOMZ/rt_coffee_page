@@ -27,7 +27,7 @@ export default class Messaging extends React.Component {
     }
 
     render() {
-        const { token, message } = this.props;
+        const { token, message} = this.props;
         let tokenElement = "No token!";
         let messageElement = "no message";
 

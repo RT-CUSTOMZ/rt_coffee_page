@@ -30,12 +30,12 @@ render() {
                         <ListItemText primary={'Dashboard'} />
                     </ListItem>
 
-                    <ListItem component="a" button href={'/statistics'}>
+                    {/*<ListItem component="a" button href={'/statistics'}>
                         <ListItemIcon>
                             <NotesIcon />
                         </ListItemIcon>
                         <ListItemText primary={'Statistik'} />
-                    </ListItem>
+                    </ListItem>*/}
 
                     <ListItem component="a" button href={'/logs'}>
                         <ListItemIcon>
@@ -45,13 +45,13 @@ render() {
                         <ListItemText primary={'Log'} />
                     </ListItem>
 
-                    <ListItem component="a" button href={'/messaging'}>
+                    {/*<ListItem component="a" button href={'/messaging'}>
                         <ListItemIcon>
                             <NotificationsActiveIcon />
                         </ListItemIcon>
 
                         <ListItemText primary={'Messaging'} />
-                    </ListItem>
+                    </ListItem>*/}
                 </List>
             </div>
         );
@@ -66,15 +66,15 @@ render() {
                             <Button color="primary" href={'/'}>
                                 Dashboard
                             </Button>
-                            <Button color="primary" href={'/statistics'}>
+                            {/*<Button color="primary" href={'/statistics'}>
                                 Statistik
-                            </Button>
+                            </Button>*/}
                             <Button color="primary" href={'/logs'}>
                                 Log
                             </Button>
-                            <Button color="primary" href={'/messaging'}>
+                            {/*<Button color="primary" href={'/messaging'}>
                                 Messaging
-                            </Button>
+                            </Button>*/}
                         </Hidden>
                         <Hidden smUp>
                             <IconButton
