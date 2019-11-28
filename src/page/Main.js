@@ -28,8 +28,8 @@ export default class Main extends React.Component {
         let timestamp_coffeemachine = moment(currentCoffee.time_coffee_machine).format("x");
         let last_status = "no";
 
-        let german_state_name = "no"
-        let warning = "no";
+        let german_state_name = "kein Status vorhanden"
+        let warning = "Servus";
 
         if(currentCoffee.state === "coffee_ready"){
             german_state_name = "Kaffee ist fertig";

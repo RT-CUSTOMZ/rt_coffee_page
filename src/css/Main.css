@@ -23,6 +23,7 @@
 }
 .warning{
     font-size:20pt;
+    /* color:red; */
 }
 
 [class*='font_FillLevel_'] {
@@ -62,4 +63,11 @@
 
 .heading {
     background-color: #EFEFEF!important;
+}
+
+.textup{
+    position: relative;
+    top:-20pt;
+    color:red;
+    font-size: 1pt;
 }

@@ -7,6 +7,7 @@ import 'moment-timezone';
 import 'moment/locale/de';
 import CoffeeCup from "../CoffeeCup";
 import Moment from "react-moment";
+import logo from '../QR.png'; 
 
 export default class RaspberryPiLayout extends React.Component {
     render() {
@@ -137,8 +138,10 @@ export default class RaspberryPiLayout extends React.Component {
                             {last_event==="coffee_brewing"?<CircularProgress />:""}
                         </Grid>
                         <Grid item xs={7}>
-                            <Typography variant="subtitle1" gutterBottom>
-                                <span className={'warning'}>{warning}</span><br/>
+                            <img src={logo} alt="Hier" width="150" height="150" />
+
+                            <Typography variant="subtitle1" gutterBottom >
+                                <span className={'warning, textup'}>{warning}</span><br/>
                                 Der letzte Status kam von der <b>{last_status}</b>.
                             </Typography>
                         </Grid>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid, Typography, CircularProgress} from '@material-ui/core'
 import CoffeeCup from "./CoffeeCup";
 
+
 export default class LastEventIcon extends React.Component {
     render() {
         const {last_status, warning, Icon, last_event} = this.props;
@@ -15,6 +16,8 @@ export default class LastEventIcon extends React.Component {
                         {last_event==="coffee_brewing"?<CircularProgress />:""}
                     </Grid>
                     <Grid item md={7} xs={12}>
+                    {/* <CardMedia   image="./QR.png" title="Paella dish" /> */}
+                        
                         <Typography variant="subtitle1" gutterBottom>
                             <span className={'warning'}>{warning}</span><br/>
                             Der letzte Status kam von der <b>{last_status}</b>.
